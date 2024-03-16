@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TodoCounterComponent from '../Components/TodoCounter';
 import TodoSearchComponent from '../Components/TodoSearch';
 import TodoListComponent from '../Components/TodoList';
@@ -11,18 +11,18 @@ import { TodoContext } from '../TodoContex';
 
 const AppUI = () => {
 
+  const {
+    searchedValues,
+    completeTodo,
+    deleteTodo,
+    loading,
+    error
+} = useContext(TodoContext)
   return (
     <>
     <TodoCounterComponent />
     <TodoSearchComponent  />
-    <TodoContext.Consumer>
-      { ({
-          searchedValues,
-          completeTodo,
-          deleteTodo,
-          loading,
-          error
-      }) => (
+    
       <TodoListComponent >
           {loading && (
             <>
@@ -43,11 +43,11 @@ const AppUI = () => {
                               />)}
 
         </TodoListComponent>
-      )    
-      }
+         
+      
 
           
-    </TodoContext.Consumer>
+   
     
     <TodoCreateButtonComponent />
    </>
