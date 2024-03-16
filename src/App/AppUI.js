@@ -7,35 +7,48 @@ import TodoCreateButtonComponent from '../Components/TodoCreateButton';
 import TodoLoadingComponent from '../Components/TodoLoading';
 import TodoErrorComponent from '../Components/TodoError';
 import EmptyTodosComponent from '../Components/EmptyTodos';
+import { TodoContext } from '../TodoContex';
 
-const AppUI = (props) => {
+const AppUI = () => {
+
   return (
     <>
-    <TodoCounterComponent completed={props.completedTodos} total={props.totalTodos} />
-    <TodoSearchComponent 
-       searchValue={props.searchValue} 
-       setSearchValue = {props.setSearchValue} 
-     />
-    <TodoListComponent >
-       {props.loading && (
-         <>
-          <TodoLoadingComponent />
-          <TodoLoadingComponent />
-          <TodoLoadingComponent />
-        </>
-       )}
-       {props.error && <TodoErrorComponent />}
-       {(!props.loading && props.searchedValues.length === 0) && <EmptyTodosComponent />}
+    <TodoCounterComponent />
+    <TodoSearchComponent  />
+    <TodoContext.Consumer>
+      { ({
+          searchedValues,
+          completeTodo,
+          deleteTodo,
+          loading,
+          error
+      }) => (
+      <TodoListComponent >
+          {loading && (
+            <>
+              <TodoLoadingComponent />
+              <TodoLoadingComponent />
+              <TodoLoadingComponent />
+            </>
+          )}
+          {error && <TodoErrorComponent />}
+          {(!loading && searchedValues.length === 0) && <EmptyTodosComponent />}
 
-       { props.searchedValues.map( 
-         (todo) => <TodoItemComponent key={todo.text} 
-                           text={todo.text} 
-                           completed={todo.completed} 
-                           onComplete = {() =>props.completeTodo(todo.text)}
-                           onDelete ={() =>props.deleteTodo(todo.text)}
-                           />)}
+          { searchedValues.map( 
+            (todo) => <TodoItemComponent key={todo.text} 
+                              text={todo.text} 
+                              completed={todo.completed} 
+                              onComplete = {() =>completeTodo(todo.text)}
+                              onDelete ={() =>deleteTodo(todo.text)}
+                              />)}
 
-    </TodoListComponent>
+        </TodoListComponent>
+      )    
+      }
+
+          
+    </TodoContext.Consumer>
+    
     <TodoCreateButtonComponent />
    </>
 
