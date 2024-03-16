@@ -7,6 +7,8 @@ import TodoCreateButtonComponent from '../Components/TodoCreateButton';
 import TodoLoadingComponent from '../Components/TodoLoading';
 import TodoErrorComponent from '../Components/TodoError';
 import EmptyTodosComponent from '../Components/EmptyTodos';
+import { TodoForm } from '../Components/TodoForm';
+import { Modal } from '../Components/Modal'
 import { TodoContext } from '../TodoContex';
 
 const AppUI = () => {
@@ -16,7 +18,9 @@ const AppUI = () => {
     completeTodo,
     deleteTodo,
     loading,
-    error
+    error,
+    openModal,
+    setOpenModal
 } = useContext(TodoContext)
   return (
     <>
@@ -49,7 +53,14 @@ const AppUI = () => {
           
    
     
-    <TodoCreateButtonComponent />
+    <TodoCreateButtonComponent setOpenModal={setOpenModal}/>
+
+    {openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+
+    )}
    </>
 
   );

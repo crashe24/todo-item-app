@@ -1,10 +1,10 @@
 import './CreateTodoButton.css'
 
-const TodoCreateButtonComponent = () => {
+const TodoCreateButtonComponent = ({setOpenModal}) => {
   return (
       <button className='createTodoButton'
         onClick={ (event) => {
-          console.log('event', event)
+          setOpenModal(s => !s)
         }}
       >+</button>
   );
