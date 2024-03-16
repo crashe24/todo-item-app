@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/crashe24/todo-item-app/static/css/main.f734e47e.css",
-    "main.js": "/crashe24/todo-item-app/static/js/main.0535496a.js",
-    "index.html": "/crashe24/todo-item-app/index.html",
-    "static/media/delete.svg": "/crashe24/todo-item-app/static/media/delete.ffede8c3f67f444e171b9b3ea432c17d.svg",
-    "static/media/check.svg": "/crashe24/todo-item-app/static/media/check.d21794b8f548f622dfc2c879e2d7dcd9.svg",
-    "main.f734e47e.css.map": "/crashe24/todo-item-app/static/css/main.f734e47e.css.map",
-    "main.0535496a.js.map": "/crashe24/todo-item-app/static/js/main.0535496a.js.map"
+    "main.css": "/todo-item-app/static/css/main.f734e47e.css",
+    "main.js": "/todo-item-app/static/js/main.b7145b10.js",
+    "index.html": "/todo-item-app/index.html",
+    "static/media/delete.svg": "/todo-item-app/static/media/delete.ffede8c3f67f444e171b9b3ea432c17d.svg",
+    "static/media/check.svg": "/todo-item-app/static/media/check.d21794b8f548f622dfc2c879e2d7dcd9.svg",
+    "main.f734e47e.css.map": "/todo-item-app/static/css/main.f734e47e.css.map",
+    "main.b7145b10.js.map": "/todo-item-app/static/js/main.b7145b10.js.map"
   },
   "entrypoints": [
     "static/css/main.f734e47e.css",
-    "static/js/main.0535496a.js"
+    "static/js/main.b7145b10.js"
   ]
 }
