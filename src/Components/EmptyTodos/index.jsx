@@ -1,9 +1,11 @@
 const EmptyTodosComponent = () => {
+
+ 
   return (
-    <div>
-      
-    </div>
-  );
+    <>
+     <p>Agregar Todo</p> 
+    </>
+    );
 }
 
 export default EmptyTodosComponent;

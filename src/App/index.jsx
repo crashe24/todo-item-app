@@ -40,28 +40,27 @@ function App() {
         <TodoCounterComponent totalTodos = {totalTodos} completedTodos = {completedTodos}/>
         <TodoSearchComponent  searchValue = {searchValue} setSearchValue  =  {setSearchValue}/>
       </TodoHeaderComponent>
-      
-    
-      <TodoListComponent >
-          {loading && (
-            <>
-              <TodoLoadingComponent />
-              <TodoLoadingComponent />
-              <TodoLoadingComponent />
-            </>
-          )}
-          {error && <TodoErrorComponent />}
-          {(!loading && searchedValues.length === 0) && <EmptyTodosComponent />}
 
-          { searchedValues.map( 
-            (todo) => <TodoItemComponent key={todo.text} 
-                              text={todo.text} 
-                              completed={todo.completed} 
-                              onComplete = {() =>completeTodo(todo.text)}
-                              onDelete ={() =>deleteTodo(todo.text)}
-                              />)}
-
-        </TodoListComponent>
+      <TodoListComponent 
+        error = {error}
+        loading = {loading}
+        searchedTodos = {searchedValues}
+        totalTodos = {totalTodos}
+        searchText = {searchValue}
+        onError = {() => <TodoErrorComponent />}
+        onLoading = {() => <TodoLoadingComponent />}
+        onEmpty = {() => <EmptyTodosComponent  />}
+        onEmptySearchResults = { (searchText) => <p>No hay resultado para tu busqueda {searchText}</p>}
+        render = { todo => (
+                        <TodoItemComponent key={todo.text} 
+                                          text={todo.text} 
+                                          completed={todo.completed} 
+                                          onComplete = {() =>completeTodo(todo.text)}
+                                          onDelete ={() =>deleteTodo(todo.text)}
+                                          />
+                            )
+                } 
+        />
          
     <TodoCreateButtonComponent setOpenModal={setOpenModal}/>
 
