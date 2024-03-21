@@ -51,16 +51,27 @@ function App() {
         onLoading = {() => <TodoLoadingComponent />}
         onEmpty = {() => <EmptyTodosComponent  />}
         onEmptySearchResults = { (searchText) => <p>No hay resultado para tu busqueda {searchText}</p>}
-        render = { todo => (
-                        <TodoItemComponent key={todo.text} 
-                                          text={todo.text} 
-                                          completed={todo.completed} 
-                                          onComplete = {() =>completeTodo(todo.text)}
-                                          onDelete ={() =>deleteTodo(todo.text)}
-                                          />
-                            )
-                } 
-        />
+        // render = { todo => (
+        //                 <TodoItemComponent key={todo.text} 
+        //                                   text={todo.text} 
+        //                                   completed={todo.completed} 
+        //                                   onComplete = {() =>completeTodo(todo.text)}
+        //                                   onDelete ={() =>deleteTodo(todo.text)}
+        //                                   />
+        //                     )
+        //         } 
+        >
+          {
+            todo => (
+              <TodoItemComponent key={todo.text} 
+                                text={todo.text} 
+                                completed={todo.completed} 
+                                onComplete = {() =>completeTodo(todo.text)}
+                                onDelete ={() =>deleteTodo(todo.text)}
+                                />
+                  )
+          }
+        </TodoListComponent>  
          
     <TodoCreateButtonComponent setOpenModal={setOpenModal}/>
 
