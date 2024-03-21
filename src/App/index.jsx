@@ -1,4 +1,7 @@
-import React, { useContext } from 'react';
+
+import { useTodos } from './useTodos';
+import './App.css';
+
 import TodoCounterComponent from '../Components/TodoCounter';
 import TodoSearchComponent from '../Components/TodoSearch';
 import TodoListComponent from '../Components/TodoList';
@@ -9,23 +12,35 @@ import TodoErrorComponent from '../Components/TodoError';
 import EmptyTodosComponent from '../Components/EmptyTodos';
 import { TodoForm } from '../Components/TodoForm';
 import { Modal } from '../Components/Modal'
-import { TodoContext } from '../TodoContex';
+import { TodoHeaderComponent } from '../Components/TodoHeader';
 
-const AppUI = () => {
+
+
+
+function App() {
 
   const {
-    searchedValues,
-    completeTodo,
-    deleteTodo,
-    loading,
-    error,
-    openModal,
-    setOpenModal
-} = useContext(TodoContext)
-  return (
+      completedTodos,
+      totalTodos,
+      searchValue,
+      setSearchValue,
+      searchedValues,
+      completeTodo,
+      deleteTodo,
+      loading,
+      error,
+      openModal,
+      setOpenModal,
+      addTodo
+} = useTodos()
+
+   return (
     <>
-    <TodoCounterComponent />
-    <TodoSearchComponent  />
+      <TodoHeaderComponent>
+        <TodoCounterComponent totalTodos = {totalTodos} completedTodos = {completedTodos}/>
+        <TodoSearchComponent  searchValue = {searchValue} setSearchValue  =  {setSearchValue}/>
+      </TodoHeaderComponent>
+      
     
       <TodoListComponent >
           {loading && (
@@ -48,16 +63,11 @@ const AppUI = () => {
 
         </TodoListComponent>
          
-      
-
-          
-   
-    
     <TodoCreateButtonComponent setOpenModal={setOpenModal}/>
 
     {openModal && (
         <Modal>
-          <TodoForm />
+          <TodoForm addTodo = {addTodo} setOpenModal = {setOpenModal} />
         </Modal>
 
     )}
@@ -66,4 +76,4 @@ const AppUI = () => {
   );
 }
 
-export {AppUI};
+export default App;

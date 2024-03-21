@@ -1,9 +1,9 @@
-import { useContext } from 'react';
+//import { useContext } from 'react';
 import './TodoSearch.css'
-import { TodoContext } from '../../TodoContex';
+//import { TodoContext } from '../../TodoContex';
 
-const TodoSearchComponent = () => {
-  const {searchValue, setSearchValue}  = useContext(TodoContext)
+const TodoSearchComponent = ({searchValue, setSearchValue}) => {
+  //const {searchValue, setSearchValue}  = useContext(TodoContext)
   return (
         <input className='TodoSearch' 
                type='text' 

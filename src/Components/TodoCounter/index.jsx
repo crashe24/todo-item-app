@@ -1,10 +1,10 @@
-import { useContext } from 'react'
+//import { useContext } from 'react'
 import './TodoCounter.css'
-import { TodoContext } from '../../TodoContex'
+//import { TodoContext } from '../../TodoContex'
 
-const TodoCounterComponent = () => {
+const TodoCounterComponent = ({totalTodos, completedTodos}) => {
 
-  const {totalTodos, completedTodos} = useContext(TodoContext)
+ // const {totalTodos, completedTodos} = useContext(TodoContext)
   const todosCompleted = totalTodos === completedTodos
 
   if (todosCompleted) {
