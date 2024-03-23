@@ -36,9 +36,13 @@ function App() {
 
    return (
     <>
-      <TodoHeaderComponent>
-        <TodoCounterComponent totalTodos = {totalTodos} completedTodos = {completedTodos}/>
-        <TodoSearchComponent  searchValue = {searchValue} setSearchValue  =  {setSearchValue}/>
+      <TodoHeaderComponent loading = {loading}>
+        <TodoCounterComponent totalTodos = {totalTodos} completedTodos = {completedTodos} 
+        // loading = {loading}
+        />
+        <TodoSearchComponent  searchValue = {searchValue} setSearchValue  =  {setSearchValue} 
+        // loading = {loading}
+        />
       </TodoHeaderComponent>
 
       <TodoListComponent 

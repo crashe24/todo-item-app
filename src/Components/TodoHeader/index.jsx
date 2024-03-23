@@ -1,7 +1,15 @@
-const TodoHeaderComponent = ({children}) => {
+import React from 'react';
+
+const TodoHeaderComponent = ({children, loading}) => {
+
+  
   return (
     <header>
-        {children}
+      {
+        React.Children
+        .toArray(children).map(child => React.cloneElement(child, {loading}))
+      }
+        
     </header>
   );
 }

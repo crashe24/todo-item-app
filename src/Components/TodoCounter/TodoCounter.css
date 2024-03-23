@@ -11,3 +11,7 @@
     font-weight: bold;
     padding: 0px 2px;
 }
+
+.TodoCounter--loading {
+    opacity: .25;
+}

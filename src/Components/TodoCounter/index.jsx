@@ -1,26 +1,23 @@
-//import { useContext } from 'react'
 import './TodoCounter.css'
-//import { TodoContext } from '../../TodoContex'
 
-const TodoCounterComponent = ({totalTodos, completedTodos}) => {
+const TodoCounterComponent = ({totalTodos, completedTodos, loading}) => {
 
- // const {totalTodos, completedTodos} = useContext(TodoContext)
   const todosCompleted = totalTodos === completedTodos
 
   if (todosCompleted) {
     return (<>
-        <h1 className='TodoCounter'> Felicitaciones has completado los todos</h1>
+        <h2 className={`TodoCounter ${!!loading && 'TodoCounter--loading'}`}> Felicitaciones has completado los todos</h2>
     </>)
   }
   return (
-        <h1 className='TodoCounter'>El numero de todos completados es 
+        <h2 className={`TodoCounter ${!!loading && 'TodoCounter--loading'}`}>El numero de todos completados es 
             <span>
             {completedTodos}
               </span> de 
             <span>
                 {totalTodos}
             </span>
-        </h1>
+        </h2>
     
   );
 }
