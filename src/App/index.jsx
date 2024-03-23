@@ -13,7 +13,7 @@ import EmptyTodosComponent from '../Components/EmptyTodos';
 import { TodoForm } from '../Components/TodoForm';
 import { Modal } from '../Components/Modal'
 import { TodoHeaderComponent } from '../Components/TodoHeader';
-import { ChangeAlertStorageListener } from '../Components/ChangeAlert';
+import { ChangeAlert } from '../Components/ChangeAlert';
 
 
 
@@ -87,7 +87,7 @@ function App() {
         </Modal>
 
     )}
-    <ChangeAlertStorageListener sincronizedTodos = {sincronizedTodos}/>
+    <ChangeAlert sincronizedTodos = {sincronizedTodos}/>
    </>
 
   );
