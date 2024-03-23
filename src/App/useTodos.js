@@ -4,7 +4,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 
 function useTodos () {
-  const { items: todos, saveItem: saveTodos,loading, error } = useLocalStorage('TODOS_V1', [])
+  const { items: todos, saveItem: saveTodos,loading, error,sincronizeItem: sincronizedTodos } = useLocalStorage('TODOS_V1', [])
   const [searchValue, setSearchValue] = React.useState('')
   const [openModal, setOpenModal] = React.useState(false)
 
@@ -46,7 +46,8 @@ function useTodos () {
                     error,
                     openModal,
                     setOpenModal,
-                    addTodo
+                    addTodo,
+                    sincronizedTodos
             }
  
 }

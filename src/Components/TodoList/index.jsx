@@ -12,7 +12,7 @@ const TodoListComponent = ( props ) => {
         (!!props.totalTodos && !props.searchedTodos?.length) && props.onEmptySearchResults(props.searchText)
       }
       {/* { props.searchedTodos.map(todo => props.children(todo))} */}
-      { props.searchedTodos.map(validateRender)}
+      {(!props.loading && !props.error) && props.searchedTodos.map(validateRender)}
 
     </section>
   )
