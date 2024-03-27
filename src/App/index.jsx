@@ -39,12 +39,8 @@ function App() {
    return (
     <>
       <TodoHeaderComponent loading = {loading}>
-        <TodoCounterComponent totalTodos = {totalTodos} completedTodos = {completedTodos} 
-        // loading = {loading}
-        />
-        <TodoSearchComponent  searchValue = {searchValue} setSearchValue  =  {setSearchValue} 
-        // loading = {loading}
-        />
+        <TodoCounterComponent totalTodos = {totalTodos} completedTodos = {completedTodos} />
+        <TodoSearchComponent  searchValue = {searchValue} setSearchValue  =  {setSearchValue} />
       </TodoHeaderComponent>
 
       <TodoListComponent 
@@ -57,15 +53,7 @@ function App() {
         onLoading = {() => <TodoLoadingComponent />}
         onEmpty = {() => <EmptyTodosComponent  />}
         onEmptySearchResults = { (searchText) => <p>No hay resultado para tu busqueda {searchText}</p>}
-        // render = { todo => (
-        //                 <TodoItemComponent key={todo.text} 
-        //                                   text={todo.text} 
-        //                                   completed={todo.completed} 
-        //                                   onComplete = {() =>completeTodo(todo.text)}
-        //                                   onDelete ={() =>deleteTodo(todo.text)}
-        //                                   />
-        //                     )
-        //         } 
+    
         >
           {
             todo => (

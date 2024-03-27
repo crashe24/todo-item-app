@@ -1,13 +1,17 @@
 import React from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-
+import { useLocalStorageReducer } from "../hooks/useLocalStorageReducer";
 
 
 function useTodos () {
-  const { items: todos, saveItem: saveTodos,loading, error,sincronizeItem: sincronizedTodos } = useLocalStorage('TODOS_V1', [])
+  const { items: todos, 
+          saveItem: saveTodos,
+          loading, error,
+          sincronizeItem: sincronizedTodos } = useLocalStorageReducer('TODOS_V1', [])
+        console.log('todos', todos)
   const [searchValue, setSearchValue] = React.useState('')
   const [openModal, setOpenModal] = React.useState(false)
 
+  // estados derivados
   const completedTodos = todos.filter( t => !!t.completed).length
   const totalTodos = todos.length
   const searchedValues = todos.filter( t => t.text.toLowerCase().includes(searchValue?.toLowerCase())) 
